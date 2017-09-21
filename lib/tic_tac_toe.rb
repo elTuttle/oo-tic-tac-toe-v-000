@@ -35,9 +35,9 @@ class TicTacToe
     @index = input_to_index(input)
     if valid_move?(@board,index)
         move(@board, @index, current_player())
-        display_board(@board)
+        display_board()
     else
-      turn(@board)
+      turn()
     end
 
   end
@@ -53,7 +53,7 @@ class TicTacToe
   end
 
   def current_player
-    turns = turn_count(@board)
+    turns = turn_count()
     if turns == 0 || turns % 2 == 0
       return "X"
     else
@@ -62,23 +62,23 @@ class TicTacToe
   end
 
   def position_taken?
-    !(@board[index].nil? || @board[index] == " ")
+    !(@board[@index].nil? || @board[@index] == " ")
   end
 
   def play
     counter = 0
-    display_board(@board)
+    display_board()
     while counter < 9
-      if over?(@board)
-        if draw?(@board)
+      if over?()
+        if draw?()
           puts "Cat's Game!"
           counter = 10
-        else won?(@board) != false
-          puts "Congratulations #{winner(@board)}!"
+        else won?() != false
+          puts "Congratulations #{winner()}!"
           counter = 10
         end
       else
-        turn(@board)
+        turn()
         counter += 1
       end
     end
@@ -116,7 +116,7 @@ class TicTacToe
   end
 
   def draw?
-    if full?(@board) && (won?(@board) == false)
+    if full?() && (won?() == false)
       true
     else
       false
@@ -124,7 +124,7 @@ class TicTacToe
   end
 
   def over?
-    if (won?(@board) != false || draw?(@board))
+    if (won?() != false || draw?())
       true
     else
       false
@@ -132,7 +132,7 @@ class TicTacToe
   end
 
   def winner
-    win_combo = won?(@board)
+    win_combo = won?()
     if win_combo == false
       return nil
     elsif @board[win_combo[0]] == "X"
