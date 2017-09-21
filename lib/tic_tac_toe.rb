@@ -12,7 +12,7 @@ class TicTacToe
   end
 
   def input_to_index(input)
-    @index = (input.to_i - 1)
+    input.to_i - 1
   end
 
   def move()
@@ -32,7 +32,7 @@ class TicTacToe
   def turn
     puts "#{current_player()} Please enter 1-9:"
     @input = gets.strip
-    input_to_index(@input)
+    @index = input_to_index(@input)
     if valid_move?()
         move()
         display_board()
