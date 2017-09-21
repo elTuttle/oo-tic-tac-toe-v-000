@@ -16,7 +16,7 @@ class TicTacToe
   end
 
   def move
-    @board[@index] = @value
+    @board[@index] = current_player()
   end
 
   def valid_move?
@@ -33,8 +33,8 @@ class TicTacToe
     puts "Please enter 1-9:"
     input = gets.strip
     @index = input_to_index(input)
-    if valid_move?(@board,index)
-        move(@board, @index, current_player())
+    if valid_move?()
+        move()
         display_board()
     else
       turn()
