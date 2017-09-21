@@ -15,8 +15,8 @@ class TicTacToe
     @index = index.to_i - 1
   end
 
-  def move
-    @board[@index] = current_player()
+  def move(index)
+    @board[index] = current_player()
   end
 
   def valid_move?
@@ -34,7 +34,7 @@ class TicTacToe
     @input = gets.strip
     input_to_index(@input)
     if valid_move?()
-        move()
+        move(@index)
         display_board()
     else
       turn()
