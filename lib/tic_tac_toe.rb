@@ -12,11 +12,11 @@ class TicTacToe
   end
 
   def input_to_index(index)
-    index.to_i - 1
+    @index = index.to_i - 1
   end
 
   def move
-    array[index] = value
+    @board[@index] = @value
   end
 
   def valid_move?
@@ -32,9 +32,9 @@ class TicTacToe
   def turn
     puts "Please enter 1-9:"
     input = gets.strip
-    index = input_to_index(input)
+    @index = input_to_index(input)
     if valid_move?(@board,index)
-        move(@board, index, current_player(@board))
+        move(@board, @index, current_player())
         display_board(@board)
     else
       turn(@board)
