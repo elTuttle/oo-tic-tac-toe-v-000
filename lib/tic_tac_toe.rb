@@ -13,10 +13,11 @@ class TicTacToe
 
   def input_to_index(index)
     @index = index.to_i - 1
+    @index
   end
 
   def move(index)
-    @board[index] = current_player()
+    @board[input_to_index(index)] = current_player()
   end
 
   def valid_move?
