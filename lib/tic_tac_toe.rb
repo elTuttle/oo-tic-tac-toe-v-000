@@ -11,8 +11,8 @@ class TicTacToe
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
 
-  def input_to_index(index)
-    @index = index.to_i - 1
+  def input_to_index()
+    @index = @index.to_i - 1
   end
 
   def move
@@ -20,9 +20,9 @@ class TicTacToe
   end
 
   def valid_move?
-    if index > (@board.length - 1) || index < 0
+    if @index > (@board.length - 1) || @index < 0
       return false
-    elsif @board[index] == " " || @board[index] == "" || @board[index] == nil
+    elsif @board[@index] == " " || @board[@index] == "" || @board[@index] == nil
       return true
     else
       return false
@@ -32,7 +32,7 @@ class TicTacToe
   def turn
     puts "Please enter 1-9:"
     input = gets.strip
-    @index = input_to_index(input)
+    @index = input_to_index()
     if valid_move?()
         move()
         display_board()
