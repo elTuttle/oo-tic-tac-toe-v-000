@@ -67,7 +67,7 @@ class TicTacToe
 
   def play(board)
     counter = 0
-    display_@board(@board)
+    display_board(@board)
     while counter < 9
       if over?(@board)
         if draw?(@board)
