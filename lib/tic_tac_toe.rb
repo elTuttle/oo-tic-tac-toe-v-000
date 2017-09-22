@@ -16,7 +16,7 @@ class TicTacToe
   end
 
   def move(index, position)
-    @board[index] = current_player()
+    @board[index] = position
   end
 
   def valid_move?
@@ -36,7 +36,7 @@ class TicTacToe
     puts index
     @index = index
     if valid_move?
-        move()
+        move(@index, current_player)
         display_board()
     else
       turn()
