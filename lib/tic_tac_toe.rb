@@ -15,14 +15,14 @@ class TicTacToe
     input.to_i - 1
   end
 
-  def move(index, position)
-    @board[index] = position
+  def move
+    @board[@index] = current_player()
   end
 
-  def valid_move?(index)
-    if index > (@board.length - 1) || @index < 0
+  def valid_move?
+    if @index > (@board.length - 1) || @index < 0
       return false
-    elsif @board[index] == " " || @board[index] == "" || @board[index] == nil
+    elsif @board[@index] == " " || @board[@index] == "" || @board[@index] == nil
       return true
     else
       return false
@@ -36,7 +36,7 @@ class TicTacToe
     puts index
     @index = index
     if valid_move?
-        move(index, current_player())
+        move()
         display_board()
     else
       turn()
@@ -63,8 +63,8 @@ class TicTacToe
     end
   end
 
-  def position_taken?(index)
-    !(@board[index].nil? || @board[index] == " ")
+  def position_taken?
+    !(@board[@index].nil? || @board[@index] == " ")
   end
 
   def play
