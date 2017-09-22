@@ -36,7 +36,8 @@ class TicTacToe
     puts index
     @index = index
     if valid_move?(@index)
-        move(@index, current_player())
+        position = current_player()
+        move(@index, position)
         display_board()
     else
       turn()
